@@ -1,0 +1,127 @@
+{
+  "minMuleVersion": "3.5.0",
+  "requiresEntitlement": false,
+  "requiresEnterpriseLicense": false,
+  "configs": [
+    {
+      "configElementName": "config",
+      "attributes": [
+        {
+          "javaTypeName": "String",
+          "fullQualifiedJavaTypeName": "java.lang.String",
+          "defaultValue": "/dev/ttyUSB0",
+          "isOptional": true,
+          "isRefOnly": false,
+          "isPayload": false,
+          "isComplexType": false,
+          "isEnum": false,
+          "isString": true,
+          "typeMirror": "java.lang.String",
+          "isHttpCallback": false,
+          "isArrayOrListOrMap": false,
+          "javaName": "serialPortDevice",
+          "description": "Configure the Serial Port Device. i.e. /dev/ttyUSB0"
+        },
+        {
+          "javaTypeName": "Integer",
+          "fullQualifiedJavaTypeName": "int",
+          "defaultValue": "9600",
+          "isOptional": true,
+          "isRefOnly": false,
+          "isPayload": false,
+          "isComplexType": false,
+          "isEnum": false,
+          "isString": false,
+          "typeMirror": "int",
+          "isHttpCallback": false,
+          "isArrayOrListOrMap": false,
+          "javaName": "serialPortBaudRate",
+          "description": "Configure the Serial Port Baud Rate. i.e. 9600"
+        },
+        {
+          "javaTypeName": "Integer",
+          "fullQualifiedJavaTypeName": "int",
+          "defaultValue": "8",
+          "isOptional": true,
+          "isRefOnly": false,
+          "isPayload": false,
+          "isComplexType": false,
+          "isEnum": false,
+          "isString": false,
+          "typeMirror": "int",
+          "isHttpCallback": false,
+          "isArrayOrListOrMap": false,
+          "javaName": "serialPortDataBits",
+          "description": "Configure the Serial Data Bits. i.e. 8"
+        },
+        {
+          "javaTypeName": "ConnectorConfig$StopBits",
+          "fullQualifiedJavaTypeName": "org.mule.modules.serialportreader.config.ConnectorConfig.StopBits",
+          "defaultValue": "ONE_STOP_BIT",
+          "isOptional": true,
+          "isRefOnly": false,
+          "isPayload": false,
+          "isComplexType": false,
+          "isEnum": true,
+          "isString": false,
+          "typeMirror": "org.mule.modules.serialportreader.config.ConnectorConfig.StopBits",
+          "isHttpCallback": false,
+          "isArrayOrListOrMap": false,
+          "javaName": "serialPortStopBits",
+          "description": "Configure the Serial Stop Bits"
+        },
+        {
+          "javaTypeName": "ConnectorConfig$Parity",
+          "fullQualifiedJavaTypeName": "org.mule.modules.serialportreader.config.ConnectorConfig.Parity",
+          "defaultValue": "NO_PARITY",
+          "isOptional": true,
+          "isRefOnly": false,
+          "isPayload": false,
+          "isComplexType": false,
+          "isEnum": true,
+          "isString": false,
+          "typeMirror": "org.mule.modules.serialportreader.config.ConnectorConfig.Parity",
+          "isHttpCallback": false,
+          "isArrayOrListOrMap": false,
+          "javaName": "serialPortParity",
+          "description": "Configure the Serial Port Parity"
+        }
+      ],
+      "javaName": "ConnectorConfig",
+      "friendlyName": "Configuration",
+      "type": "ConfigurationConfig"
+    }
+  ],
+  "attributes": [],
+  "processors": [
+    {
+      "isPaged": false,
+      "isBatch": false,
+      "samples": [],
+      "javaReturnType": {
+        "javaTypeName": "byte[]",
+        "fullQualifiedJavaTypeName": "byte[]",
+        "isOptional": false,
+        "isRefOnly": false,
+        "isPayload": false,
+        "isComplexType": false,
+        "isEnum": false,
+        "isString": false,
+        "isHttpCallback": false,
+        "description": "Get reading from the Serial Port"
+      },
+      "parameters": [],
+      "apiDocUrl": "",
+      "javaName": "readSerialData",
+      "friendlyName": "Read Serial Data",
+      "description": "Read a single data feed from the serial Port",
+      "xsdName": "read-serial-data"
+    }
+  ],
+  "filters": [],
+  "transformers": [],
+  "sources": [],
+  "javaName": "SerialPortReaderConnector",
+  "friendlyName": "Serial Port Reader",
+  "xsdName": "serial-port-reader"
+}

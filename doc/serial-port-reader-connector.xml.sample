@@ -1,0 +1,3 @@
+<!-- BEGIN_INCLUDE(serial-port-reader:greet) -->
+    <serial-port-reader:greet config-ref="" friend="#[map-payload:friend]" />
+<!-- END_INCLUDE(serial-port-reader:greet) -->

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" url="http://www.mulesoft.org/schema/mule/serial-port-reader" prefix="serial-port-reader">
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="Serial Port Reader" description="" icon="" localId="parentConfig" image="" abstract="true" extends="http://www.mulesoft.org/schema/mule/serial-port-reader/abstractSerial-port-readerConnectorGeneric"></global-cloud-connector>
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="Serial Port Reader: Configuration" description="Global Configuration configuration information." icon="icons/theme.classic/serial-port-reader-connector-small.png" localId="config" image="icons/theme.classic/serial-port-reader-connector-large.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/serial-port-reader/parentConfig" connectivityTesting="off" metaData="static" metaDataKeyDisplay="DISPLAY_NAME" supportsUserDefinedMetaData="false">
+    <attribute-category caption="General" description="Serial-port-reader configuration properties.">
+      <group id="serial-port-readerGenericProperties" caption="Basic Settings">
+        <name name="name" caption="Name" description="Give a name to this configuration so it can be later referenced by config-ref." required="true"></name>
+      </group>
+      <group id="general" caption="General">
+        <string defaultValue="/dev/ttyUSB0" name="serialPortDevice" caption="Serial device" description="Configure the Serial Port Device. i.e. /dev/ttyUSB0." supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+        <integer defaultValue="9600" min="0" step="1" name="serialPortBaudRate" caption="Baud Rate" description="Configure the Serial Port Baud Rate. i.e. 9600." supportsExpressions="false" required="false" javaType="int"></integer>
+        <integer defaultValue="8" min="0" step="1" name="serialPortDataBits" caption="Data bits" description="Configure the Serial Data Bits. i.e. 8." supportsExpressions="false" required="false" javaType="int"></integer>
+        <enum defaultValue="NO_PARITY" allowsCustom="true" name="serialPortParity" caption="Parity" description="Configure the Serial Port Parity." supportsExpressions="false" required="false" javaType="org.mule.modules.serialportreader.config.ConnectorConfig.Parity">
+          <option value="EVEN_PARITY"></option>
+          <option value="MARK_PARITY"></option>
+          <option value="NO_PARITY"></option>
+          <option value="ODD_PARITY"></option>
+          <option value="SPACE_PARITY"></option>
+        </enum>
+        <enum defaultValue="ONE_STOP_BIT" allowsCustom="true" name="serialPortStopBits" caption="Stop bits" description="Configure the Serial Stop Bits." supportsExpressions="false" required="false" javaType="org.mule.modules.serialportreader.config.ConnectorConfig.StopBits">
+          <option value="ONE_POINT_FIVE_STOP_BITS"></option>
+          <option value="ONE_STOP_BIT"></option>
+          <option value="TWO_STOP_BITS"></option>
+        </enum>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector caption="Abstractserial-port-readerconnectorgeneric" description="Interact with Serial-port-reader." icon="icons/theme.classic/serial-port-reader-connector-small.png" localId="abstractSerial-port-readerConnectorGeneric" image="icons/theme.classic/serial-port-reader-connector-large.png" abstract="true">
+    <attribute-category caption="General" description="General.">
+      <group id="abstractSerial-port-readerConnectorGeneric" caption="Basic Settings">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/serial-port-reader/config" name="config-ref" caption="Connector Configuration" description="Specify which configuration to use for this invocation." required="true"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector versions="[3.5.0,8.0.0]" aliasId="org.mule.tooling.ui.modules.core.pattern.serial-port-reader" caption="Serial Port Reader" description="" icon="icons/theme.classic/serial-port-reader-connector-small.png" localId="serial-port-reader-connector" image="icons/theme.classic/serial-port-reader-connector-large.png" extends="http://www.mulesoft.org/schema/mule/serial-port-reader/abstractSerial-port-readerConnectorGeneric">
+    <attribute-category caption="General" description="General.">
+      <group id="serial-port-readerConnectorGeneric" caption="Basic Settings">
+        <modeSwitch alwaysCombo="true" name="Serial-port-reader operations to execute" caption="Operation" description="Operation.">
+          <no-operation abstractElement="http://www.mulesoft.org/schema/mule/serial-port-reader/abstractSerial-port-readerConnectorGeneric" versions="[3.5.0,8.0.0]" connector-name="processor"></no-operation>
+          <mode modeId="http://www.mulesoft.org/schema/mule/serial-port-reader/read-serial-data" modeLabel="Read Serial Data"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="byte[]" caption="Read Serial Data" icon="icons/theme.classic/serial-port-reader-connector-small.png" localId="read-serial-data" image="icons/theme.classic/serial-port-reader-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/serial-port-reader/abstractSerial-port-readerConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General."></attribute-category>
+  </cloud-connector>
+</namespace>
